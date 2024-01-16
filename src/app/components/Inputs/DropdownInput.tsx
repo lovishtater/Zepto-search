@@ -32,7 +32,7 @@ const DropdownInput: React.FC<IDropdownInput> = ({ users }) => {
     setSearchQuery("");
   };
 
-  const handleUserSelect = useCallback((selectedUser: User) => {
+  const handleChipSelect = useCallback((selectedUser: User) => {
     setSelectedUsers((prevUsers) =>
       prevUsers.filter((user: User) => user.id !== selectedUser.id)
     );
@@ -52,15 +52,15 @@ const DropdownInput: React.FC<IDropdownInput> = ({ users }) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Backspace" && searchQuery === "") {
       if (selectedUsers.length > 0) {
-        const lastSelectedUser = selectedUsers[selectedUsers.length - 1];
-        if (lastSelectedUser === selectedChip) {
-          handleUserSelect(lastSelectedUser);
+        if (selectedChip) {
+          handleChipSelect(selectedChip);
           setSelectedChip(null);
         } else {
+          const lastSelectedUser = selectedUsers[selectedUsers.length - 1];
           setSelectedChip(lastSelectedUser);
         }
       }
-    } else {
+    } else if (selectedChip) {
       setSelectedChip(null);
     }
   };
@@ -73,7 +73,8 @@ const DropdownInput: React.FC<IDropdownInput> = ({ users }) => {
             key={user.id}
             user={user}
             selectedChip={selectedChip}
-            handleUserSelect={handleUserSelect}
+            onSelect={() => setSelectedChip((u) => (u === user ? null : user))}
+            handleDelete={() => handleChipSelect(user)}
           />
         ))}
         <input
