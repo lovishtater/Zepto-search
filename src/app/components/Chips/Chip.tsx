@@ -3,26 +3,22 @@ import { ChipAction, ChipAvatar, ChipLabel } from "./Chip.molecules";
 
 interface ChipProps {
   user: User;
-  lastBackspacedUser: User | null;
+  selectedChip: User | null;
   handleUserSelect: (user: User) => void;
 }
 
-export const Chip: React.FC<ChipProps> = ({
-  handleUserSelect,
-  user,
-  lastBackspacedUser,
-}) => {
+export const Chip: React.FC<ChipProps> = ({ handleUserSelect, user, selectedChip }) => {
   return (
     <div
       className={`flex items-center gap-2 bg-gray-200 rounded-full w-fit min-w-40 pr-2 justify-between cursor-pointer m-1 ${
-        user === lastBackspacedUser ? "opacity-50" : ""
+        user === selectedChip ? "opacity-50" : ""
       }`}
     >
       <div className="flex items-center gap-2">
-        <ChipAvatar name={user.name} />
+        <ChipAvatar url={user.displayPicture} name={user.name} />
         <ChipLabel value={user.name} />
       </div>
-      <ChipAction user={user} handleClick={handleUserSelect} />
+      <ChipAction handleClick={() => handleUserSelect(user)} />
     </div>
   );
 };

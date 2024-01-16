@@ -1,13 +1,12 @@
 import { User } from "@/app/types/users";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface IChipAction {
-  user: User;
-  handleClick: (user: User) => void;
+  handleClick: () => void;
 }
 
 interface IChipAvatar {
-  url?: string;
+  url?: string | null | StaticImageData;
   name?: string;
 }
 
@@ -15,11 +14,11 @@ interface IChipLabel {
   value: string;
 }
 
-export const ChipAction: React.FC<IChipAction> = ({ handleClick, user }) => {
+export const ChipAction: React.FC<IChipAction> = ({ handleClick }) => {
   return (
     <div
-      onClick={() => handleClick(user)}
-      className="font-bold tracking-wide cursor-pointer p-1 hover:bg-gray-950 rounded-full h-5 w-5 flex items-center transition-all ease-linear justify-center "
+      onClick={() => handleClick()}
+      className="font-bold tracking-wide cursor-pointer p-1 hover:bg-red-300 rounded-full h-5 w-5 flex items-center transition-all ease-linear justify-center "
     >
       &times;
     </div>

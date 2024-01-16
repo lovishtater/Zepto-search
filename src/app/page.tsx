@@ -1,4 +1,5 @@
 import DropdownInput from "./components/Inputs/DropdownInput";
+import { users } from "@/app/mock/mockUsers";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
           Zepto - Search
         </span>
       </h1>
-      <DropdownInput />
+      <DropdownInput users={users} />
     </main>
   );
 }
