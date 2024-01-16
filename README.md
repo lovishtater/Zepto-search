@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chip Component README
 
-## Getting Started
+## Deployed Version
 
-First, run the development server:
+The Chip Component is deployed and accessible at https://zepto-search.vercel.app/.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This README file provides an overview of the design and implementation of the Chip
+Component as per the given specifications. The component is built using React, with a
+focus on clean code and TypeScript. The additional bonus task of handling backspace
+functionality for deleting the last chip is also addressed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Component Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Dynamic List Display:**
 
-## Learn More
+   - Clicking on the input field triggers the display of a list of items.
+   - As the user types, the list dynamically updates to show only items that match the
+     input.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Chips Management:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Clicking on an item in the list turns it into a chip at the top.
+   - The input field adjusts automatically, and the selected item is removed from the
+     list.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Chip Removal:**
 
-## Deploy on Vercel
+   - Each chip has an "X" icon that allows the user to remove the chip.
+   - Clicking the "X" icon removes the chip and adds the corresponding item back to the
+     list.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Backspace Functionality:**
+   - When the input field is blank, pressing backspace highlights the last chip.
+   - Pressing backspace again deletes the highlighted chip.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Technologies Used
+
+- **NextJS:** The component is built using the NextJS library, ensuring a modular and
+  component-based approach.
+- **TypeScript:** The codebase is written in TypeScript to provide type safety and enhance
+  code readability.
+
+- **CSS (Tailwind CSS/SCSS):** Styling is implemented using either Tailwind CSS or SCSS,
+  depending on the preference and configuration.
+
+## Usage
+
+1. **Installation:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Run the Application:**
+
+   ```bash
+   npm start
+   ```
+
+3. **Open in Browser:**
+   - Open the browser and navigate to `http://localhost:3000`.
+
+## Conclusion
+
+The Chip Component provides a seamless and user-friendly experience for selecting and
+managing items. The clean code, TypeScript integration, and backspace functionality
+enhance the overall quality of the solution.
